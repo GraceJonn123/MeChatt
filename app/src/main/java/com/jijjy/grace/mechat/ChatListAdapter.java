@@ -1,6 +1,8 @@
 package com.jijjy.grace.mechat;
 
 import android.app.Activity;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.view.View;
 import android.widget.TextView;
 
@@ -27,5 +29,13 @@ public class ChatListAdapter extends FirebaseListAdapter<Chat> {
         //Map a chat object to an entry in our list view
         String author = chat.getAuthor();
         TextView authorText = (TextView) view.findViewById(R.id.author);
+        authorText.setText(author + "; ");
+
+        if (author != null && author.equals(mUsername)) {
+            authorText.setTextColor(Color.RED);
+        } else {
+            authorText.setTextColor(Color.BLUE);
+        }
+        ((TextView)view.findViewById(R.id.message)).setText(chat.getMessage());
     }
 }

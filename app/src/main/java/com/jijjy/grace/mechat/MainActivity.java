@@ -21,7 +21,6 @@ import java.util.Random;
 
 public class MainActivity extends ListActivity {
 
-//    // TODO: change this to your own Firebase URL
 //    private static final String FIREBASE_URL = "https://mechat.firebaseio.com";
 //
 //    private String mUsername;
@@ -127,8 +126,7 @@ public class MainActivity extends ListActivity {
 //            inputText.setText("");
 //        }
 //    }
-// TODO: change this to your own Firebase URL
-private static final String FIREBASE_URL = "https://android-chat.firebaseio-demo.com";
+    private static final String FIREBASE_URL = "https://android-chat.firebaseio-demo.com";
 
     private String mUsername;
     private Firebase mFirebaseRef;
@@ -139,6 +137,8 @@ private static final String FIREBASE_URL = "https://android-chat.firebaseio-demo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Firebase.setAndroidContext(this);
+
 
         // Make sure we have a mUsername
         setupUsername();
@@ -217,7 +217,7 @@ private static final String FIREBASE_URL = "https://android-chat.firebaseio-demo
         if (mUsername == null) {
             Random r = new Random();
             // Assign a random user name if we don't have one saved.
-            mUsername = "JavaUser" + r.nextInt(100000);
+            mUsername = "Grace" + r.nextInt(100000);
             prefs.edit().putString("username", mUsername).commit();
         }
     }
